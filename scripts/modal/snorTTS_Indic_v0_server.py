@@ -2,7 +2,7 @@
 # uv run pip install modal
 
 # * Setup Modal.
-# uv run python3 -m modal setup
+# uv run modal setup
 
 # * Run to deploy the Modal app.
 # uv run modal deploy scripts/modal/snorTTS_Indic_v0_server.py

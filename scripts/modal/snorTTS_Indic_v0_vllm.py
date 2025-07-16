@@ -2,7 +2,7 @@
 # uv run pip install modal
 
 # * Setup Modal.
-# uv run python3 -m modal setup
+# uv run modal setup
 
 # * Run to deploy the Modal app.
 # uv run modal deploy scripts/modal/snorTTS_Indic_v0_vllm.py
@@ -19,7 +19,7 @@ APP_NAME = "snorTTS-Indic-v0-vllm-prod"
 SCALEDOWN_WINDOW = 15 * 60
 TIMEOUT = 10 * 60
 VLLM_PORT = 8000
-GPU = "A100-40GB"
+GPU = "T4"
 MIN_CONTAINERS = 1
 MAX_CONTAINERS = 1
 MAX_CONCURRENT_REQUESTS = MAX_CONCURRENT_SEQS
