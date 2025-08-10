@@ -25,7 +25,7 @@ import modal
 
 
 # Define constants.
-APP_NAME = "snorTTS-Indic-v0-server-prod"
+APP_NAME = "snorTTS-Indic-v0-server-dev"
 SCALEDOWN_WINDOW = 15 * 60
 TIMEOUT = 10 * 60
 MIN_CONTAINERS = 1
@@ -93,6 +93,7 @@ with image.imports():
     enable_memory_snapshot=True,  # Enable memory snapshot for better cold boot times.
     min_containers=MIN_CONTAINERS,  # Minimum number of containers to keep running.
     max_containers=MAX_CONTAINERS,  # Maximum number of containers to run.
+    region="ap-south-1",  # Set the region for the function.
 )
 @modal.concurrent(
     max_inputs=MAX_CONCURRENT_REQUESTS
@@ -228,7 +229,7 @@ class TTSServer:
 
             # Generate the output.
             async with aiohttp.ClientSession(
-                base_url="https://snorbyte--snortts-indic-v0-vllm-prod-serve.modal.run"
+                base_url="https://snorbyte--snortts-indic-v0-vllm-dev-serve.modal.run"
             ) as session:
                 # Prepare the payload for the vLLM server.
                 # ! Without type hinting the vLLM server will not recognize the request.
